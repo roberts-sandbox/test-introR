@@ -115,7 +115,7 @@ install_github("slidify", "ramnath")
 ```
 
 ```
-## [1] 7.32
+## [1] 7.615
 ```
 
 
@@ -128,67 +128,6 @@ install_github("slidify", "ramnath")
 
 ---
 
-## Let's look at data 
-- Look at some data from PWT from 1990-2010 for 6 random countries
-
-```r
-library(pwt)
-data(pwt7.1)
-myData <- pwt7.1
-row.names(myData) <- NULL
-names <- unique(myData$country)
-c <- as.character(sample(names, 6))
-myData <- subset(myData, year > 1988 & country %in% c)
-myData[1:5, 1:6]
-```
-
-```
-##       country isocode year  pop    xrat      currency
-## 1565 Bulgaria     BGR 1989 8990 0.00084 Bulgarian Lev
-## 1566 Bulgaria     BGR 1990 8894 0.00219 Bulgarian Lev
-## 1567 Bulgaria     BGR 1991 8772 0.01779 Bulgarian Lev
-## 1568 Bulgaria     BGR 1992 8659 0.02334 Bulgarian Lev
-## 1569 Bulgaria     BGR 1993 8442 0.02759 Bulgarian Lev
-```
-
-
----
-
-## Plots 
-We can create two simple plots with the following
-
-```r
-library(plyr)
-library(ggplot2)
-myData <- ddply(myData, .(country), transform, Lrgdpch = c(NA, rgdpch[-length(rgdpch)]))
-myData <- subset(myData, year >= 1990)
-myData$rgdpch1 <- (myData$rgdpch - myData$Lrgdpch)/myData$Lrgdpch * 100
-
-plot1 <- ggplot(myData, aes(x = year, y = rgdpch1, color = country)) + geom_line(size = 1) + 
-    labs(list(title = "", x = "", y = "")) + theme_bw() + theme(strip.text.x = element_text(size = 11), 
-    strip.background = element_rect(fill = "white"))
-
-plot2 <- ggplot(myData, aes(x = year, y = rgdpch1)) + geom_line(size = 1) + 
-    labs(list(title = "", x = "", y = "")) + theme_bw() + facet_wrap(~country, 
-    scales = "fixed") + theme(strip.text.x = element_text(size = 11), strip.background = element_rect(fill = "white")) + 
-    geom_hline(aes(yintercept = 0), colour = "#990000", linetype = "dashed")
-```
-
-
---- 
-
-## Plot1
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
-
-
----
-
-## Plot2
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
-
-
----
-
 ## Regressions
 - R can do OLS, RE/FE, Arellano-Bond/Bover GMM, etc (use `plm`)
 - We can also fix standard errors (robust, cluster)
@@ -196,12 +135,18 @@ plot2 <- ggplot(myData, aes(x = year, y = rgdpch1)) + geom_line(size = 1) +
 
 ```r
 ols <- lm(rgdpch1 ~ year, data = myData)
+```
+
+```
+## Error: object 'myData' not found
+```
+
+```r
 coefficients(ols)
 ```
 
 ```
-## (Intercept)        year 
-##   -417.8870      0.2104
+## Error: object 'ols' not found
 ```
 
 
@@ -226,5 +171,4 @@ coefficients(ols)
 ---
 ## References 
 - This talk borrows extensively from slides by [Jared Knowles](http://jaredknowles.com/). Check out his site for some great R tutorials. 
-
 

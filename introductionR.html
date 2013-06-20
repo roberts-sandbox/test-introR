@@ -220,7 +220,7 @@ install_github(&quot;slidify&quot;, &quot;ramnath&quot;)
 <pre><code class="r">7 + runif(1, min = 0, max = 1)  #add a random variable
 </code></pre>
 
-<pre><code>## [1] 7.32
+<pre><code>## [1] 7.615
 </code></pre>
 
   </article>
@@ -244,86 +244,6 @@ install_github(&quot;slidify&quot;, &quot;ramnath&quot;)
 
       <slide class="" id="slide-12" style="background:;">
   <hgroup>
-    <h2>Let&#39;s look at data</h2>
-  </hgroup>
-  <article>
-    <ul>
-<li>Look at some data from PWT from 1990-2010 for 6 random countries</li>
-</ul>
-
-<pre><code class="r">library(pwt)
-data(pwt7.1)
-myData &lt;- pwt7.1
-row.names(myData) &lt;- NULL
-names &lt;- unique(myData$country)
-c &lt;- as.character(sample(names, 6))
-myData &lt;- subset(myData, year &gt; 1988 &amp; country %in% c)
-myData[1:5, 1:6]
-</code></pre>
-
-<pre><code>##       country isocode year  pop    xrat      currency
-## 1565 Bulgaria     BGR 1989 8990 0.00084 Bulgarian Lev
-## 1566 Bulgaria     BGR 1990 8894 0.00219 Bulgarian Lev
-## 1567 Bulgaria     BGR 1991 8772 0.01779 Bulgarian Lev
-## 1568 Bulgaria     BGR 1992 8659 0.02334 Bulgarian Lev
-## 1569 Bulgaria     BGR 1993 8442 0.02759 Bulgarian Lev
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="" id="slide-13" style="background:;">
-  <hgroup>
-    <h2>Plots</h2>
-  </hgroup>
-  <article>
-    <p>We can create two simple plots with the following</p>
-
-<pre><code class="r">library(plyr)
-library(ggplot2)
-myData &lt;- ddply(myData, .(country), transform, Lrgdpch = c(NA, rgdpch[-length(rgdpch)]))
-myData &lt;- subset(myData, year &gt;= 1990)
-myData$rgdpch1 &lt;- (myData$rgdpch - myData$Lrgdpch)/myData$Lrgdpch * 100
-
-plot1 &lt;- ggplot(myData, aes(x = year, y = rgdpch1, color = country)) + geom_line(size = 1) + 
-    labs(list(title = &quot;&quot;, x = &quot;&quot;, y = &quot;&quot;)) + theme_bw() + theme(strip.text.x = element_text(size = 11), 
-    strip.background = element_rect(fill = &quot;white&quot;))
-
-plot2 &lt;- ggplot(myData, aes(x = year, y = rgdpch1)) + geom_line(size = 1) + 
-    labs(list(title = &quot;&quot;, x = &quot;&quot;, y = &quot;&quot;)) + theme_bw() + facet_wrap(~country, 
-    scales = &quot;fixed&quot;) + theme(strip.text.x = element_text(size = 11), strip.background = element_rect(fill = &quot;white&quot;)) + 
-    geom_hline(aes(yintercept = 0), colour = &quot;#990000&quot;, linetype = &quot;dashed&quot;)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="" id="slide-14" style="background:;">
-  <hgroup>
-    <h2>Plot1</h2>
-  </hgroup>
-  <article>
-    <p><img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="" id="slide-15" style="background:;">
-  <hgroup>
-    <h2>Plot2</h2>
-  </hgroup>
-  <article>
-    <p><img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="" id="slide-16" style="background:;">
-  <hgroup>
     <h2>Regressions</h2>
   </hgroup>
   <article>
@@ -334,18 +254,22 @@ plot2 &lt;- ggplot(myData, aes(x = year, y = rgdpch1)) + geom_line(size = 1) +
 </ul>
 
 <pre><code class="r">ols &lt;- lm(rgdpch1 ~ year, data = myData)
-coefficients(ols)
 </code></pre>
 
-<pre><code>## (Intercept)        year 
-##   -417.8870      0.2104
+<pre><code>## Error: object &#39;myData&#39; not found
+</code></pre>
+
+<pre><code class="r">coefficients(ols)
+</code></pre>
+
+<pre><code>## Error: object &#39;ols&#39; not found
 </code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+      <slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>But what more can you do in R?</h2>
   </hgroup>
@@ -355,7 +279,7 @@ coefficients(ols)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Myslide</h2>
   </hgroup>
@@ -366,7 +290,7 @@ coefficients(ols)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Want to learn more?</h2>
   </hgroup>
@@ -383,7 +307,7 @@ coefficients(ols)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
