@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to R programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introduction to R programming">
+  <meta name="author" content="Sebastian Barfort">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href = "libraries/widgets/quiz/css/jquery-quiz.css">
+<link rel="stylesheet" href = "assets/css/lists.css">
+<link rel="stylesheet" href = "assets/css/quotes.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+<link rel="stylesheet" href = "assets/css/sizes.css">
+<link rel="stylesheet" href = "assets/css/tables.css">
+<link rel="stylesheet" href = "assets/css/text.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>Introduction to R programming</h1>
+        <h2>NUMEDIG, July 2013</h2>
+        <p>Sebastian Barfort<br/>PhD student, University of Copenhagen</p>
+      </hgroup>
+      <a href="https://github.com/sebastianbarfort/introductionR/zipball/gh-pages" class="example">
+        Download
+      </a>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Overview</h2>
+  </hgroup>
+  <article>
+    <p>Hopefully, I can give you an idea about the following</p>
+
+<ul class = "build">
+<li>What is R?</li>
+<li>How does it work? </li>
+<li>Why learn it? </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>What is R?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R is an Open Source environment for statistical computing and graphics</li>
+<li>Available for Windows, Mac OS X, and Linux</li>
+<li>R is being actively developed with two major releases per year and dozens of releases of add on packages</li>
+<li>R can be extended with &#39;packages&#39; that contain data, code, and documentation to add new functionality</li>
+</ul>
+
+<pre><code>install packages(&quot;foreign&quot;)
+install_github(&quot;slidify&quot;, &quot;ramnath&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>A bit of history</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R is a flavor of the <strong>S</strong> computer language</li>
+<li>S was developed by John Chambers at Bell Labs in the late 1970s</li>
+<li>Version 4 of S, the latest version, was finished in 1998</li>
+<li>In 1991, Ross Ihaka and Robert Gentleman create R</li>
+<li>R is named for their first initials</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>John Chambers on the philosophy of S</h2>
+  </hgroup>
+  <article>
+    <p>&quot;[W]e wanted users to be able to begin in an interactive environment, where they did not consciously think of themselves as <span class = 'red'>programming</span>. Then as their needs became  clearer and their sophistication increased, they should be  able to <span class = 'red'>slide gradually</span> into programming, when the language and system aspects would become more important.&quot;</p>
+
+<p align='left'> <img src="assets/img/chambers.png" height="300" width="300"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Free lunch?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R is free in many senses
+
+<ol>
+<li>R can be run and used for any purpose, commercial or non-commercial, profit or not-for-profit</li>
+<li>R&#39;s source code is freely available so you can study how it works and adapt it to your needs.</li>
+<li>R is free to redistribute so you can share it with your <del>enemies</del>  friends</li>
+</ol></li>
+<li>Try not to think too much as an economist, and consider the social contract
+
+<ul>
+<li>Chip in a little...and get a lot back</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>R advantages</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R is platform agnostic - works with Linux, Mac, PC, etc.</li>
+<li>R can read and write Stata, SPSS, SAS, Excel files</li>
+<li>R is encredibly flexible and can be adopted to almost any need</li>
+<li>You can collect, clean, analyze, vizualize and present data all from within R</li>
+<li>... and much more depending on interest!</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>R drawbacks</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R is based on S, almost 40 years old </li>
+<li>Open source means you have to check packages</li>
+<li>R is a programming language, not a software package--steep learning curve</li>
+<li>R can be slow</li>
+<li>Lack of panel data - and possibly time series - packages</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Components of an R setup</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><a href="http://cran.r-project.org/">R</a> - works, but not easy to work with</li>
+<li><a href="http://www.rstudio.com/ide/download/">RStudio</a> - a syntax highlighter that makes R much more accessible</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>How does RStudio look?</h2>
+  </hgroup>
+  <article>
+    <iframe src = 'http://www.rstudio.com/ide/' height='400px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>R as a calculator</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">2 + 2  ## add numbers
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<pre><code class="r">2 * pi  #multiply by a constant
+</code></pre>
+
+<pre><code>## [1] 6.283
+</code></pre>
+
+<pre><code class="r">7 + runif(1, min = 0, max = 1)  #add a random variable
+</code></pre>
+
+<pre><code>## [1] 7.601
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Objects</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Everything in R is an object - even functions and graphs</li>
+<li>Objects can be manipulated in many ways</li>
+<li>This will prove important if you decide to learn R</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s look at data</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Look at some data from PWT from 1990-2010 for 6 random countries</li>
+</ul>
+
+<pre><code class="r">library(pwt)
+data(pwt7.1)
+myData &lt;- pwt7.1
+row.names(myData) &lt;- NULL
+names &lt;- unique(myData$country)
+c &lt;- as.character(sample(names, 6))  # pick 6 random countries
+myData &lt;- subset(myData, year &gt; 1988 &amp; country %in% c)
+myData[1:5, 1:6]
+</code></pre>
+
+<pre><code>##        country isocode year    pop  xrat currency
+## 772 Bangladesh     BGD 1989 110316 32.27     Taka
+## 773 Bangladesh     BGD 1990 112213 34.57     Taka
+## 774 Bangladesh     BGD 1991 113911 36.60     Taka
+## 775 Bangladesh     BGD 1992 115751 38.95     Taka
+## 776 Bangladesh     BGD 1993 117621 39.57     Taka
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Plots</h2>
+  </hgroup>
+  <article>
+    <p>We can create two simple plots with the following</p>
+
+<pre><code class="r">library(plyr)
+library(ggplot2)
+myData &lt;- ddply(myData, .(country), transform, Lrgdpch = c(NA, rgdpch[-length(rgdpch)]))
+myData &lt;- subset(myData, year &gt;= 1990)
+myData$rgdpch1 &lt;- (myData$rgdpch - myData$Lrgdpch)/myData$Lrgdpch * 100
+
+plot1 &lt;- ggplot(myData, aes(x = year, y = rgdpch1, color = country)) + geom_line(size = 1) + 
+    labs(list(title = &quot;&quot;, x = &quot;&quot;, y = &quot;&quot;)) + theme_bw() + theme(strip.text.x = element_text(size = 11), 
+    strip.background = element_rect(fill = &quot;white&quot;))
+
+plot2 &lt;- ggplot(myData, aes(x = year, y = rgdpch1)) + geom_line(size = 1) + 
+    labs(list(title = &quot;&quot;, x = &quot;&quot;, y = &quot;&quot;)) + theme_bw() + facet_wrap(~country, 
+    scales = &quot;fixed&quot;) + theme(strip.text.x = element_text(size = 11), strip.background = element_rect(fill = &quot;white&quot;)) + 
+    geom_hline(aes(yintercept = 0), colour = &quot;#990000&quot;, linetype = &quot;dashed&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Plot1</h2>
+  </hgroup>
+  <article>
+    <p><img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Plot2</h2>
+  </hgroup>
+  <article>
+    <p><img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Regressions</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R can do OLS, RE/FE, Arellano-Bond/Bover GMM, etc (use <code>plm</code>)</li>
+<li>We can also fix standard errors (robust, cluster)</li>
+<li>We can export results to Tex (use <code>stargazer</code> or <code>apsrtable</code> )</li>
+</ul>
+
+<pre><code class="r">ols &lt;- lm(rgdpch1 ~ year, data = myData)
+coefficients(ols)
+</code></pre>
+
+<pre><code>## (Intercept)        year 
+##   -314.4413      0.1586
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>But what more can you do in R?</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Myslide</h2>
+  </hgroup>
+  <article>
+    <iframe src="http://bl.ocks.org/mbostock/raw/1256572/"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Want to learn more?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Why not come to the first CopenhagenR session? August 27 somewhere in Copenhagen</li>
+<li>First lecture given by a true expert: Peter Dalgaard</li>
+<li>If you cant wait, a good place to start is this book</li>
+</ul>
+
+<iframe src = 'http://www.springer.com/statistics/computational+statistics/book/978-0-387-75935-7' height='400px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>This talk borrows extensively from slides by <a href="http://jaredknowles.com/">Jared Knowles</a>. Check out his site for some great R tutorials. </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script src='libraries/widgets/bootstrap/js/bootstrap.min.js'></script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>  
+<script src='libraries/widgets/quiz/js/jquery.quiz.js'></script>
+<script src='libraries/widgets/quiz/js/mustache.min.js'></script>
+<script type="text/javascript">
+ $('.quiz').find('li:has(em)').addClass('quiz-answer')
+ $('li.quiz-answer em').replaceWith(function(){
+   return $(this).contents()
+ })
+ $('.quiz').find('li').addClass('quiz-option')
+ $.quiz();
+</script>
+</html>
