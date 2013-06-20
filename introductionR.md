@@ -115,7 +115,7 @@ install_github("slidify", "ramnath")
 ```
 
 ```
-## [1] 7.601
+## [1] 7.32
 ```
 
 
@@ -137,18 +137,18 @@ data(pwt7.1)
 myData <- pwt7.1
 row.names(myData) <- NULL
 names <- unique(myData$country)
-c <- as.character(sample(names, 6))  # pick 6 random countries
+c <- as.character(sample(names, 6))
 myData <- subset(myData, year > 1988 & country %in% c)
 myData[1:5, 1:6]
 ```
 
 ```
-##        country isocode year    pop  xrat currency
-## 772 Bangladesh     BGD 1989 110316 32.27     Taka
-## 773 Bangladesh     BGD 1990 112213 34.57     Taka
-## 774 Bangladesh     BGD 1991 113911 36.60     Taka
-## 775 Bangladesh     BGD 1992 115751 38.95     Taka
-## 776 Bangladesh     BGD 1993 117621 39.57     Taka
+##       country isocode year  pop    xrat      currency
+## 1565 Bulgaria     BGR 1989 8990 0.00084 Bulgarian Lev
+## 1566 Bulgaria     BGR 1990 8894 0.00219 Bulgarian Lev
+## 1567 Bulgaria     BGR 1991 8772 0.01779 Bulgarian Lev
+## 1568 Bulgaria     BGR 1992 8659 0.02334 Bulgarian Lev
+## 1569 Bulgaria     BGR 1993 8442 0.02759 Bulgarian Lev
 ```
 
 
@@ -201,7 +201,7 @@ coefficients(ols)
 
 ```
 ## (Intercept)        year 
-##   -314.4413      0.1586
+##   -417.8870      0.2104
 ```
 
 

@@ -116,7 +116,7 @@ data(pwt7.1)
 myData <- pwt7.1
 row.names(myData) <- NULL
 names <- unique(myData$country)
-c <- as.character(sample(names, 6)) # pick 6 random countries
+c <- as.character(sample(names, 6)) 
 myData <- subset(myData, year>1988 & country %in% c)
 myData[1:5,1:6]
 ```
